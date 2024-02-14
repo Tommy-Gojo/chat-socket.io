@@ -1,0 +1,36 @@
+.message-bubble {
+    background-color: #DCF8C6;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+    color: black;
+  }
+  
+  .message-bubble::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+  
+  .message-bubble.sent {
+    background-color: #DCF8C6;
+    align-self: flex-end;
+  }
+  
+  .message-bubble.sent::after {
+    right: -10px;
+    border-left: 10px solid #DCF8C6;
+  }
+  
+  .message-bubble.received::after {
+    left: -10px;
+    border-right: 10px solid #DCF8C6;
+  }
+
+  .user2 {
+    background-color: #CCE5FF; /* Couleur de la bulle de message pour l'utilisateur 2 */
+  }
+  
