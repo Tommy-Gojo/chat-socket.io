@@ -1,3 +1,23 @@
+<!-- Pop Up Starter -->
+
+<div id="pop-up-bg" *ngIf="showForm">
+  <ion-toolbar id="pop-up">
+    <form (ngSubmit)="_submitForm()" id="form-pop-up">
+      <ion-item>
+        <ion-label position="floating">Pseudo</ion-label>
+        <ion-input type="text" [(ngModel)]="pseudo" name="pseudo" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Avatar URL</ion-label>
+        <ion-input type="file" [(ngModel)]="avatarUrl" name="avatarUrl" value="avatarUrl"></ion-input>
+      </ion-item>
+      <ion-button expand="block" type="submit">Submit</ion-button>
+    </form>
+  </ion-toolbar>
+</div>
+  
+
+
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -54,7 +74,9 @@
 </ion-menu>
 <ion-router-outlet id="main-content"></ion-router-outlet>
 
-<ion-footer>
+
+
+<ion-footer class="footDisable" *ngIf="!showForm">
   <ion-toolbar>
     <ion-input placeholder="Message"></ion-input>
     <ion-button slot="end">Send</ion-button>

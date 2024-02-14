@@ -33,4 +33,27 @@
   .user2 {
     background-color: #CCE5FF; /* Couleur de la bulle de message pour l'utilisateur 2 */
   }
-  
+  #pop-up-bg{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    
+    z-index: 1;
+    background-color: hsl(0, 0%, 0%, 0.5);
+  }
+  #pop-up{
+    width: 60%;
+    height: 40%;
+    top: 25%;
+    left: 25%;
+    display: flex;
+    border-radius: 25px;
+  }
+  #form-pop-up{
+    width: 80%;
+    padding-left: 73px;
+  }
+
+  .dpNone{
+    display: none;
+  }
