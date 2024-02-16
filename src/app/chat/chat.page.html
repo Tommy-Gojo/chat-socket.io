@@ -1,23 +1,20 @@
 <!-- Pop Up Starter -->
 
-<div id="pop-up-bg" *ngIf="showForm">
+<div id="pop-up-bg" *ngIf="showForm" >
   <ion-toolbar id="pop-up">
-    <form (ngSubmit)="_submitForm()" id="form-pop-up">
+    <form (ngSubmit)="registerUsername()" id="form-pop-up">
       <ion-item>
         <ion-label position="floating">Pseudo</ion-label>
         <ion-input type="text" [(ngModel)]="pseudo" name="pseudo" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Avatar URL</ion-label>
-        <ion-input type="file" [(ngModel)]="avatarUrl" name="avatarUrl" value="avatarUrl"></ion-input>
+        <ion-input type="text" [(ngModel)]="avatarUrl" name="avatarUrl" value="avatarUrl"></ion-input>
       </ion-item>
       <ion-button expand="block" type="submit">Submit</ion-button>
     </form>
   </ion-toolbar>
 </div>
-  
-
-
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -30,22 +27,13 @@
 <ion-content>
   <!-- Contenu principal de la page -->
   <ion-list lines="none">
-    <ion-item>
+    <ion-item *ngFor="let message of messages">
       <ion-avatar slot="start">
-        <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=retro&f=y">
+        <img [src]="avatarUrl"> <!-- Utilisez l'URL de l'avatar du message -->
       </ion-avatar>
       <ion-label>
-        <h2>Tanguy</h2>
-        <p class="message-bubble">Message de l'utilisateur 1</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=wavatar&f=y">
-      </ion-avatar>
-      <ion-label>
-        <h2>Tommy</h2>
-        <p class="message-bubble user2">Message de l'utilisateur 2</p>
+        <h2 id="pseudo">{{ message.sender }}</h2>
+        <p class="message-bubble" [ngClass]="{'current-user-message sent': message.sender === pseudo, 'other-user-message received': message.sender !== pseudo}">{{ message.content }}</p>
       </ion-label>
     </ion-item>
     <!-- Ajoutez plus d'éléments d'items selon le nombre de messages -->
@@ -73,12 +61,11 @@
   </ion-content>
 </ion-menu>
 <ion-router-outlet id="main-content"></ion-router-outlet>
-
-
-
 <ion-footer class="footDisable" *ngIf="!showForm">
-  <ion-toolbar>
-    <ion-input placeholder="Message"></ion-input>
-    <ion-button slot="end">Send</ion-button>
-  </ion-toolbar>
+  <form (ngSubmit)="sendMessage()">
+    <ion-item>
+      <ion-input type="text" placeholder="Message" name="message" [(ngModel)]="messageText"></ion-input>
+      <ion-button type="submit" slot="end">Send</ion-button>
+    </ion-item>
+  </form>
 </ion-footer>

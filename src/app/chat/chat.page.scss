@@ -1,59 +1,68 @@
 .message-bubble {
-    background-color: #DCF8C6;
-    padding: 10px;
-    border-radius: 10px;
-    max-width: 70%;
-    color: black;
-  }
-  
-  .message-bubble::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-  }
-  
-  .message-bubble.sent {
-    background-color: #DCF8C6;
-    align-self: flex-end;
-  }
-  
-  .message-bubble.sent::after {
-    right: -10px;
-    border-left: 10px solid #DCF8C6;
-  }
-  
-  .message-bubble.received::after {
-    left: -10px;
-    border-right: 10px solid #DCF8C6;
-  }
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 20%;
+  color: black;
+}
 
-  .user2 {
-    background-color: #CCE5FF; /* Couleur de la bulle de message pour l'utilisateur 2 */
-  }
-  #pop-up-bg{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    
-    z-index: 1;
-    background-color: hsl(0, 0%, 0%, 0.5);
-  }
-  #pop-up{
-    width: 60%;
-    height: 40%;
-    top: 25%;
-    left: 25%;
-    display: flex;
-    border-radius: 25px;
-  }
-  #form-pop-up{
-    width: 80%;
-    padding-left: 73px;
-  }
+.message-bubble::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
 
-  .dpNone{
-    display: none;
-  }
+.message-bubble.sent {
+  
+  align-self: flex-end;
+}
+
+.message-bubble.sent::after {
+  right: -10px;
+  border-left: 10px solid #DCF8C6;
+}
+
+.message-bubble.received::after {
+  left: -10px;
+  border-right: 10px solid #DCF8C6;
+}
+
+.user2 {
+  background-color: #CCE5FF; /* Couleur de la bulle de message pour l'utilisateur 2 */
+}
+#pop-up-bg{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  
+  z-index: 1;
+  background-color: hsl(0, 0%, 0%, 0.5);
+}
+#pop-up{
+  width: 60%;
+  height: 40%;
+  top: 25%;
+  left: 25%;
+  display: flex;
+  border-radius: 25px;
+}
+#form-pop-up{
+  width: 80%;
+  padding-left: 73px;
+}
+
+.dpNone{
+  display: none;
+}
+
+.current-user-message {
+  background-color: #DEFFFC; /* Couleur pour les messages de l'utilisateur actuel */
+}
+
+.other-user-message {
+  background-color: #E7C8DD; /* Couleur pour les messages des autres utilisateurs */
+}
+
+  
